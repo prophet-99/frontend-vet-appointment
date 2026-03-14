@@ -1,0 +1,25 @@
+.sh-thumb {
+  position: relative;
+  flex-shrink: 0;
+
+  &__image {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__cta {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    aspect-ratio: 1 / 1;
+
+    svg {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+  }
+}

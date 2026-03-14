@@ -1,8 +1,8 @@
-import { TabsModule } from 'primeng/tabs';
-import { CardModule } from 'primeng/card';
-import { TagModule } from 'primeng/tag';
-import { DividerModule } from 'primeng/divider';
+import { DatePipe } from '@angular/common';
 
-export const NG_MODULES = [];
-export const EXTERNAL_MODULES = [TabsModule, CardModule, TagModule, DividerModule];
-export const CUSTOM_MODULES = [];
+import { TabsModule } from 'primeng/tabs';
+import { CardListComponent } from '@modules/dashboard/components/card-list/card-list.component';
+
+export const NG_MODULES = [DatePipe];
+export const EXTERNAL_MODULES = [TabsModule];
+export const CUSTOM_MODULES = [CardListComponent];

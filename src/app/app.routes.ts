@@ -3,11 +3,16 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'inicio',
     pathMatch: 'full',
   },
   {
-    path: 'dashboard',
-    loadComponent: () => import('@modules/dashboard/dashboard').then((c) => c.Dashboard),
+    path: 'inicio',
+    loadComponent: () =>
+      import('@modules/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+  },
+  {
+    path: 'gestionar',
+    loadComponent: () => import('@modules/management/management').then((c) => c.Management),
   },
 ];

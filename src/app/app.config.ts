@@ -1,10 +1,14 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { ApplicationConfig, LOCALE_ID, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 import { provideRouter } from '@angular/router';
+import localeEs from '@angular/common/locales/es';
 
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
 import { routes } from './app.routes';
+
+registerLocaleData(localeEs);
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,5 +22,6 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    { provide: LOCALE_ID, useValue: 'es' },
   ],
 };

@@ -1,0 +1,14 @@
+@if (rawAppointments().success) {
+  @for (appointment of rawAppointments().body.appointments; track appointment.appointmentId) {
+    <app-card-item [appointment]="appointment" />
+  }
+} @else {
+  <section>
+    <h2 class="m-0 text-color-secondary font-semibold">
+      {{
+        rawAppointments().errorReason ||
+          'Ups 😕 Tuvimos un problema al cargar tus citas. Por favor, inténtalo de nuevo en unos momentos 💙'
+      }}
+    </h2>
+  </section>
+}

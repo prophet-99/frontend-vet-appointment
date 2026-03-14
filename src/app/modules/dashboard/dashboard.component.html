@@ -1,0 +1,41 @@
+<button (click)="reload()">Reload</button>
+<main class="p-4">
+  <section class="mb-4">
+    <h1 class="mt-0 mb-1 text-2xl">Citas para hoy</h1>
+    <p class="m-0 text-color-secondary text-sm font-medium flex align-items-center gap-2">
+      <i class="pi pi-calendar text-sm"></i>
+      {{ currentDate() | date: "dd 'de' MMMM 'del' yyyy" }}
+    </p>
+  </section>
+
+  <p-tabs value="0">
+    <p-tablist
+      [pt]="{
+        tabList: {
+          class: 'justify-content-center',
+        },
+      }"
+    >
+      <p-tab value="0">Próximas</p-tab>
+      <p-tab value="1">Anteriores</p-tab>
+    </p-tablist>
+    <p-tabpanels [pt]="{ root: { class: 'p-0 pt-3' } }">
+      <p-tabpanel value="0">
+        @if (appointments.hasValue()) {
+          <app-card-list [rawAppointments]="appointments.value()" />
+        } @else if (appointments.error()) {
+          <section>
+            {{ appointments.error() }}
+            <h2 class="m-0 text-color-secondary font-semibold">
+              Ups 😕 Tuvimos un problema al cargar tus citas. Por favor, inténtalo de nuevo en unos
+              momentos 💙
+            </h2>
+          </section>
+        } @else if (appointments.isLoading()) {
+          Loading ...
+        }
+      </p-tabpanel>
+      <p-tabpanel value="1"> </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
+</main>
